@@ -6,4 +6,4 @@
 :HL["/portfolio/work/a-plus-content/314-retail/mobile.png","image"]
 :HL["/portfolio/work/a-plus-content/fitly/desktop.png","image"]
 :HL["/portfolio/work/a-plus-content/fitly/mobile.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"work","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"a-plus-content","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"uO1OzvlD-Y9yd9y1sLYzX"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"work","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"a-plus-content","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"d8zJXcZvt7JtLacKEulF2"}
