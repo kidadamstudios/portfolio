@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+An Amazon-creative portfolio site built with Next.js (App Router), Tailwind CSS, and Framer Motion — dark theme with a gold accent, animated route transitions, scroll reveals.
 
-First, run the development server:
+## Running it
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where to edit things
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Categories (Main Images, Listing Images, A+ Content, Brand Story, Brand Store)** — [`src/lib/categories.ts`](src/lib/categories.ts). Each entry drives its folder card on Home/Work and its own page at `/work/<slug>` (headline, subtext, and preview images).
+- **Adding real work samples** — drop image files anywhere under `public/` (e.g. `public/work/main-images/1.jpg`) and list their paths in that category's `images` array in `categories.ts`. Until you add paths, a gold placeholder grid renders instead so the layout still looks finished.
+- **Name, bio, skills, "What I do"** — [`src/app/about/page.tsx`](src/app/about/page.tsx).
+- **Hero headline/copy** — [`src/components/Hero.tsx`](src/components/Hero.tsx).
+- **Email & social links** — [`src/app/contact/page.tsx`](src/app/contact/page.tsx) and [`src/components/Footer.tsx`](src/components/Footer.tsx) (update the placeholder LinkedIn/Instagram URLs).
+- **Colors** — CSS variables at the top of [`src/app/globals.css`](src/app/globals.css) (`--accent` is the gold; `--background`, etc for the rest).
+- **Nav links / site name** — [`src/components/Nav.tsx`](src/components/Nav.tsx).
 
-## Learn More
+## Deploying
 
-To learn more about Next.js, take a look at the following resources:
+Push this to a GitHub repo and import it on [Vercel](https://vercel.com/new) (zero-config for Next.js). Add a custom domain under the project's Domains settings once it's deployed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion · lucide-react
