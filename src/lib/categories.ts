@@ -250,6 +250,22 @@ export const categories: Category[] = [
           (_, i) => `/work/app-design/blackout-murder/${pad(i + 1)}.png`
         ),
       },
+      {
+        name: "Rounds",
+        aspect: "portrait",
+        images: Array.from(
+          { length: 6 },
+          (_, i) => `/work/app-design/rounds/${pad(i + 1)}.png`
+        ),
+      },
+      {
+        name: "Bottled Worlds",
+        aspect: "portrait",
+        images: Array.from(
+          { length: 6 },
+          (_, i) => `/work/app-design/bottled-worlds/${pad(i + 1)}.jpg`
+        ),
+      },
     ],
   },
 ];
