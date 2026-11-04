@@ -99,7 +99,7 @@ function CarouselOrPlaceholder({ images }: { images: string[] }) {
 }
 
 // Full-height, uncropped previews for tall page screenshots (A+ Content,
-// Brand Story, Brand Store — typically a desktop + mobile pair per project).
+// Brand Story — typically a desktop + mobile pair per project).
 function PageStrip({ images, offset = 0 }: { images: string[]; offset?: number }) {
   const tiles = images.length > 0 ? images : Array.from({ length: 2 });
 

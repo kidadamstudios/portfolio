@@ -197,15 +197,6 @@ export const categories: Category[] = [
     ],
   },
   {
-    slug: "brand-store",
-    folderLabel: "Brand Store",
-    headline: "Turn Your Catalog Into a Destination",
-    subtext:
-      "Purpose-built storefronts that bring your brand to life, organize your products intuitively, and guide shoppers through a seamless browsing experience.",
-    images: [],
-    layout: "pages",
-  },
-  {
     slug: "social-media",
     folderLabel: "Social Media",
     headline: "Build a Presence Worth Following",
@@ -241,12 +232,22 @@ export const categories: Category[] = [
           (_, i) => `/work/social-media/slinky-stove/${pad(i + 1)}.jpg`
         ),
       },
+    ],
+  },
+  {
+    slug: "app-design",
+    folderLabel: "App Design",
+    headline: "Make Every Screen Worth Tapping",
+    subtext:
+      "App interfaces and launch creatives — from in-app screens to store and social visuals — designed to look sharp, feel intuitive, and turn downloads into daily players.",
+    images: [],
+    projects: [
       {
         name: "Blackout Murder",
         aspect: "portrait",
         images: Array.from(
           { length: 6 },
-          (_, i) => `/work/social-media/blackout-murder/${pad(i + 1)}.png`
+          (_, i) => `/work/app-design/blackout-murder/${pad(i + 1)}.png`
         ),
       },
     ],

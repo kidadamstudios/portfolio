@@ -24,7 +24,7 @@ const scriptFont = Alex_Brush({
 export const metadata: Metadata = {
   title: "Adrian Dayao — Creative Director",
   description:
-    "Portfolio of Adrian Dayao, a creative director specializing in Amazon creative, brand design, and social media — main images, listing images, A+ Content, brand story, brand store, and social content.",
+    "Portfolio of Adrian Dayao, a creative director specializing in Amazon creative, brand design, social media, and app design — main images, listing images, A+ Content, brand story, social content, and app creatives.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
