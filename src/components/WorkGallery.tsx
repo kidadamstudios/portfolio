@@ -69,7 +69,7 @@ export default function WorkGallery({
               ) : layout === "pages" ? (
                 <PageStrip images={project.images} offset={gi} />
               ) : (
-                <ImageGrid images={project.images} offset={gi} />
+                <ImageGrid images={project.images} offset={gi} aspect={project.aspect} />
               )}
             </div>
           </div>
@@ -124,7 +124,15 @@ function PageStrip({ images, offset = 0 }: { images: string[]; offset?: number }
   );
 }
 
-function ImageGrid({ images, offset = 0 }: { images: string[]; offset?: number }) {
+function ImageGrid({
+  images,
+  offset = 0,
+  aspect = "square",
+}: {
+  images: string[];
+  offset?: number;
+  aspect?: "square" | "portrait";
+}) {
   // Show real images when available, otherwise placeholder tiles so the
   // layout is easy to preview before work samples are added.
   const tiles = images.length > 0 ? images : Array.from({ length: 6 });
@@ -133,7 +141,7 @@ function ImageGrid({ images, offset = 0 }: { images: string[]; offset?: number }
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
       {tiles.map((src, i) => (
         <Reveal key={i} delay={(offset + i) * 0.04} y={16}>
-          <div className="group relative aspect-square overflow-hidden rounded-xl border border-border bg-surface">
+          <div className={`group relative ${aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"} overflow-hidden rounded-xl border border-border bg-surface`}>
             {typeof src === "string" ? (
               <Image
                 src={asset(src)}

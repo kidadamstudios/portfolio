@@ -10,6 +10,9 @@ export type ComparisonSample = {
 export type WorkProject = {
   name: string; // client/brand name shown as a heading
   images: string[];
+  // Tile shape in grid layouts. Defaults to "square"; use "portrait" for 4:5
+  // posts (e.g. 1080x1350 Instagram) so they aren't cropped.
+  aspect?: "square" | "portrait";
 };
 
 export type Category = {
@@ -236,6 +239,14 @@ export const categories: Category[] = [
         images: Array.from(
           { length: 4 },
           (_, i) => `/work/social-media/slinky-stove/${pad(i + 1)}.jpg`
+        ),
+      },
+      {
+        name: "Blackout Murder",
+        aspect: "portrait",
+        images: Array.from(
+          { length: 6 },
+          (_, i) => `/work/social-media/blackout-murder/${pad(i + 1)}.png`
         ),
       },
     ],
