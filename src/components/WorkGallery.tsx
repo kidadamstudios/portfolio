@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import CompareSlider from "@/components/CompareSlider";
 import BrandStoryCarousel from "@/components/BrandStoryCarousel";
 import type { ComparisonSample, WorkProject } from "@/lib/categories";
+import { asset } from "@/lib/asset";
 
 export default function WorkGallery({
   images,
@@ -109,7 +110,7 @@ function PageStrip({ images, offset = 0 }: { images: string[]; offset?: number }
           <div className="h-[560px] max-h-[70vh] overflow-hidden rounded-xl border border-border bg-surface">
             {typeof src === "string" ? (
               // eslint-disable-next-line @next/next/no-img-element -- natural aspect ratio, unknown dimensions
-              <img src={src} alt="" className="h-full w-auto object-contain" />
+              <img src={asset(src)} alt="" className="h-full w-auto object-contain" />
             ) : (
               <div className="flex h-full w-[280px] flex-col items-center justify-center gap-2 bg-[radial-gradient(circle_at_30%_20%,var(--accent-soft),transparent_60%)] text-muted">
                 <ImageIcon size={22} className="text-accent/50" />
@@ -135,7 +136,7 @@ function ImageGrid({ images, offset = 0 }: { images: string[]; offset?: number }
           <div className="group relative aspect-square overflow-hidden rounded-xl border border-border bg-surface">
             {typeof src === "string" ? (
               <Image
-                src={src}
+                src={asset(src)}
                 alt=""
                 fill
                 sizes="(min-width: 768px) 33vw, 50vw"

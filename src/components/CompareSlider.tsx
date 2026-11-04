@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import { MoveHorizontal, ImageIcon } from "lucide-react";
+import { asset } from "@/lib/asset";
 
 type Side = {
   src?: string;
@@ -110,7 +111,7 @@ function ImageOrPlaceholder({ src }: { src?: string }) {
   }
   return (
     <Image
-      src={src}
+      src={asset(src)}
       alt=""
       fill
       sizes="(min-width: 768px) 50vw, 100vw"

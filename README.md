@@ -22,7 +22,14 @@ Then open [http://localhost:3000](http://localhost:3000).
 
 ## Deploying
 
-Push this to a GitHub repo and import it on [Vercel](https://vercel.com/new) (zero-config for Next.js). Add a custom domain under the project's Domains settings once it's deployed.
+The live site is served by GitHub Pages at https://kidadamstudios.github.io/portfolio/.
+After committing and pushing changes to `main`, publish them with:
+
+```bash
+sh scripts/deploy-pages.sh
+```
+
+It builds a static copy of the site (with the `/portfolio` sub-folder prefix) and pushes it to the `gh-pages` branch, which Pages serves. Pages can take a minute or two to update.
 
 ## Stack
 

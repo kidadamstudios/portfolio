@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { asset } from "@/lib/asset";
 
 // Amazon's Brand Story module keeps one fixed background while the cards on
 // top of it cycle. Each `frames` entry is a full screenshot of that same
@@ -20,7 +21,7 @@ export default function BrandStoryCarousel({ frames }: { frames: string[] }) {
         {frames.map((src, i) => (
           <Image
             key={src}
-            src={src}
+            src={asset(src)}
             alt=""
             fill
             sizes="100vw"
