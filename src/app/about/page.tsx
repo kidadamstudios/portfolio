@@ -27,7 +27,7 @@ export default function AboutPage() {
     <section className="mx-auto max-w-3xl px-6 py-16 md:px-10">
       <Reveal>
         <p className="font-mono text-sm text-accent">About</p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+        <h1 className="mt-3 font-serif text-5xl tracking-tight md:text-6xl">
           <GradientHeadline {...headlines.about} />
         </h1>
       </Reveal>

@@ -19,7 +19,7 @@ export default function ContactPage() {
     <section className="mx-auto flex min-h-[70vh] max-w-3xl flex-col justify-center px-6 py-16 md:px-10">
       <Reveal>
         <p className="font-mono text-sm text-accent">Contact</p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
+        <h1 className="mt-3 font-serif text-5xl tracking-tight md:text-7xl">
           Let&apos;s sell
           <br />
           something.

@@ -1,5 +1,7 @@
 export type ComparisonSample = {
   name?: string; // client/brand name shown above the slider
+  slug?: string; // anchor id on the category page, e.g. /work/main-images#holy-cow
+  summary?: string; // one-liner shown in the brand picker popup
   // Paths to the two versions, e.g. "/work/main-images/holy-cow/normal.jpg".
   before: string;
   after: string;
@@ -9,6 +11,8 @@ export type ComparisonSample = {
 
 export type WorkProject = {
   name: string; // client/brand name shown as a heading
+  slug?: string; // anchor id on the category page; defaults to a slug of `name`
+  summary?: string; // one-liner shown in the brand picker popup
   images: string[];
   // Tile shape in grid layouts. Defaults to "square"; use "portrait" for 4:5
   // posts (e.g. 1080x1350 Instagram) so they aren't cropped.
@@ -48,26 +52,36 @@ export const categories: Category[] = [
     comparisons: [
       {
         name: "Holy Cow — Whipped Tallow Balm",
+        slug: "holy-cow",
+        summary: "Whipped tallow balm — a plain jar shot rebuilt into an open-jar, ingredient-led hero.",
         before: "/work/main-images/holy-cow/normal.jpg",
         after: "/work/main-images/holy-cow/ctr-hack.jpg",
       },
       {
         name: "SANO — Maxima Ultra Concentrated Fabric Softener",
+        slug: "sano-maxima",
+        summary: "Ultra-concentrated fabric softener with a richer, ribboned pack render.",
         before: "/work/main-images/sano-maxima/normal.jpg",
         after: "/work/main-images/sano-maxima/ctr-hack.jpg",
       },
       {
         name: "Sunglass Monsters — Fit Over Glasses Goggles",
+        slug: "sunglass-monsters",
+        summary: "Fit-over-glasses goggles paired with their branded pouch.",
         before: "/work/main-images/sunglass-monsters/normal.jpg",
         after: "/work/main-images/sunglass-monsters/ctr-hack.jpg",
       },
       {
         name: "Bow Wow Labs",
+        slug: "bow-wow-labs",
+        summary: "Pet product hero, normal vs CTR-optimized.",
         before: "/work/main-images/bow-wow-labs/normal.jpg",
         after: "/work/main-images/bow-wow-labs/ctr-hack.jpg",
       },
       {
         name: "Luxury Light Co",
+        slug: "luxury-light-co",
+        summary: "LED bulb hero with the retail box pulled into frame.",
         before: "/work/main-images/luxury-light-co/normal.jpg",
         after: "/work/main-images/luxury-light-co/ctr-hack.jpg",
       },
@@ -83,6 +97,7 @@ export const categories: Category[] = [
     projects: [
       {
         name: "Fireside Coffee",
+        summary: "6-image listing set — infographics and lifestyle scenes.",
         images: Array.from(
           { length: 6 },
           (_, i) => `/work/listing-images/fireside-coffee/${pad(i + 1)}.jpg`
@@ -90,6 +105,7 @@ export const categories: Category[] = [
       },
       {
         name: "Fitly",
+        summary: "6-image listing set — infographics and lifestyle scenes.",
         images: Array.from(
           { length: 6 },
           (_, i) => `/work/listing-images/fitly/${pad(i + 1)}.jpg`
@@ -97,6 +113,7 @@ export const categories: Category[] = [
       },
       {
         name: "Nugevity",
+        summary: "7-image listing set — infographics and lifestyle scenes.",
         images: Array.from(
           { length: 7 },
           (_, i) => `/work/listing-images/nugevity/${pad(i + 1)}.png`
@@ -104,6 +121,7 @@ export const categories: Category[] = [
       },
       {
         name: "Original Earthling",
+        summary: "6-image listing set — infographics and lifestyle scenes.",
         images: Array.from(
           { length: 6 },
           (_, i) => `/work/listing-images/original-earthling/${pad(i + 1)}.png`
@@ -111,6 +129,7 @@ export const categories: Category[] = [
       },
       {
         name: "Pretty Privates",
+        summary: "6-image listing set — infographics and lifestyle scenes.",
         images: Array.from(
           { length: 6 },
           (_, i) => `/work/listing-images/pretty-privates/${pad(i + 1)}.jpg`
@@ -118,6 +137,7 @@ export const categories: Category[] = [
       },
       {
         name: "Good Guys",
+        summary: "6-image listing set — infographics and lifestyle scenes.",
         images: Array.from(
           { length: 6 },
           (_, i) => `/work/listing-images/good-guys/${pad(i + 1)}.jpg`
@@ -125,6 +145,7 @@ export const categories: Category[] = [
       },
       {
         name: "Pet and Pen",
+        summary: "6-image listing set — infographics and lifestyle scenes.",
         images: Array.from(
           { length: 6 },
           (_, i) => `/work/listing-images/pet-and-pen/${pad(i + 1)}.jpg`
@@ -132,6 +153,7 @@ export const categories: Category[] = [
       },
       {
         name: "Riverbend",
+        summary: "6-image listing set — infographics and lifestyle scenes.",
         images: Array.from(
           { length: 6 },
           (_, i) => `/work/listing-images/riverbend/${pad(i + 1)}.jpg`
@@ -139,6 +161,7 @@ export const categories: Category[] = [
       },
       {
         name: "Symglass",
+        summary: "7-image listing set — infographics and lifestyle scenes.",
         images: Array.from(
           { length: 7 },
           (_, i) => `/work/listing-images/symglass/${pad(i + 1)}.jpg`
@@ -157,6 +180,7 @@ export const categories: Category[] = [
     projects: [
       {
         name: "314 Retail",
+        summary: "Hazelnut Bliss — full desktop and mobile A+ layouts.",
         images: [
           "/work/a-plus-content/314-retail/desktop.png",
           "/work/a-plus-content/314-retail/mobile.png",
@@ -164,6 +188,7 @@ export const categories: Category[] = [
       },
       {
         name: "Fitly",
+        summary: "Desktop and mobile A+ modules for the Fitly line.",
         images: [
           "/work/a-plus-content/fitly/desktop.png",
           "/work/a-plus-content/fitly/mobile.png",
@@ -182,6 +207,7 @@ export const categories: Category[] = [
     projects: [
       {
         name: "Vincent's Meat Market",
+        summary: "Family butcher since 1954 — chef-led story cards on a dark slate backdrop.",
         images: Array.from(
           { length: 4 },
           (_, i) => `/work/brand-story/vincents-meat-market/${pad(i + 1)}.png`
@@ -189,9 +215,26 @@ export const categories: Category[] = [
       },
       {
         name: "Webb's Water Gardens",
+        summary: "Pond supply specialists since 1981, told in a splash-driven layout.",
         images: Array.from(
           { length: 4 },
           (_, i) => `/work/brand-story/webbs-water-garden/${pad(i + 1)}.png`
+        ),
+      },
+      {
+        name: "Fireside Coffee",
+        summary: "Brand story cards for Fireside Coffee.",
+        images: Array.from(
+          { length: 4 },
+          (_, i) => `/work/brand-story/fireside-coffee/${pad(i + 1)}.png`
+        ),
+      },
+      {
+        name: "Massage Tools",
+        summary: "Brand story slides for a massage tools brand.",
+        images: Array.from(
+          { length: 4 },
+          (_, i) => `/work/brand-story/massage-tools/${pad(i + 1)}.png`
         ),
       },
     ],
@@ -206,6 +249,7 @@ export const categories: Category[] = [
     projects: [
       {
         name: "Bilva",
+        summary: "2 Instagram and Facebook posts.",
         images: Array.from(
           { length: 2 },
           (_, i) => `/work/social-media/bilva/${pad(i + 1)}.jpg`
@@ -213,6 +257,7 @@ export const categories: Category[] = [
       },
       {
         name: "Boffe",
+        summary: "3 Instagram and Facebook posts.",
         images: Array.from(
           { length: 3 },
           (_, i) => `/work/social-media/boffe/${pad(i + 1)}.jpg`
@@ -220,6 +265,7 @@ export const categories: Category[] = [
       },
       {
         name: "Garrison Eagle",
+        summary: "5 Instagram and Facebook posts.",
         images: Array.from(
           { length: 5 },
           (_, i) => `/work/social-media/garrison-eagle/${pad(i + 1)}.jpg`
@@ -227,6 +273,7 @@ export const categories: Category[] = [
       },
       {
         name: "Slinky Stove",
+        summary: "4 Instagram and Facebook posts.",
         images: Array.from(
           { length: 4 },
           (_, i) => `/work/social-media/slinky-stove/${pad(i + 1)}.jpg`
@@ -244,6 +291,7 @@ export const categories: Category[] = [
     projects: [
       {
         name: "Blackout Murder",
+        summary: "Noir murder-mystery game — six launch posts built from in-app screens.",
         aspect: "portrait",
         images: Array.from(
           { length: 6 },
@@ -252,6 +300,7 @@ export const categories: Category[] = [
       },
       {
         name: "Rounds",
+        summary: "Six launch posts for the Rounds app.",
         aspect: "portrait",
         images: Array.from(
           { length: 6 },
@@ -260,6 +309,7 @@ export const categories: Category[] = [
       },
       {
         name: "Bottled Worlds",
+        summary: "Six launch posts for Bottled Worlds.",
         aspect: "portrait",
         images: Array.from(
           { length: 6 },
@@ -272,6 +322,53 @@ export const categories: Category[] = [
 
 function pad(n: number) {
   return n.toString().padStart(2, "0");
+}
+
+export type BrandSummary = {
+  name: string;
+  slug: string;
+  summary?: string;
+  cover: string;
+};
+
+export function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+// One entry per brand in a category, used by the folder thumbnails, the brand
+// picker popup, the category sidebar, and the anchor ids on category pages.
+export function getBrands(category: Category): BrandSummary[] {
+  if (category.comparisons) {
+    return category.comparisons.map((c) => {
+      const name = (c.name ?? "").split(" — ")[0];
+      return { name, slug: c.slug ?? slugify(name), summary: c.summary, cover: c.after };
+    });
+  }
+  return (category.projects ?? []).map((p) => ({
+    name: p.name,
+    slug: p.slug ?? slugify(p.name),
+    summary: p.summary,
+    cover: p.images[0],
+  }));
+}
+
+// Three thumbnails for a folder card: one cover per brand, topped up with each
+// brand's other images when a category has fewer than three brands.
+export function folderThumbs(category: Category): string[] {
+  const covers = getBrands(category).map((b) => b.cover);
+  const extras = (category.projects ?? []).flatMap((p) => p.images.slice(1));
+  return [...covers, ...extras].slice(0, 3);
+}
+
+// Thumbnail shape for a category's covers.
+export function coverShape(category: Category): "square" | "wide" | "portrait" {
+  if (category.layout === "pages" || category.layout === "carousel") return "wide";
+  if (category.projects?.some((p) => p.aspect === "portrait")) return "portrait";
+  return "square";
 }
 
 export function getCategory(slug: string) {

@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0c;
-  --surface: #131316;
-  --surface-hover: #1a1a1f;
-  --foreground: #f5f5f7;
-  --muted: #98989f;
-  --border: #232328;
-  --accent: #d4af37;
-  --accent-soft: #d4af371a;
-  --accent-2: #f4d793;
-  --accent-deep: #8a6a23;
-  --accent-light: #fdf3d0;
+  --background: #090e19;
+  --surface: rgba(200, 225, 255, 0.045);
+  --surface-hover: rgba(200, 225, 255, 0.08);
+  --foreground: #eef4ff;
+  --muted: #9fb0c8;
+  --dim: #6f8098;
+  --border: rgba(170, 205, 255, 0.14);
+  --border-strong: rgba(170, 205, 255, 0.28);
+  --accent: #7fb6ff;
+  --accent-soft: rgba(127, 182, 255, 0.1);
+  --accent-light: #d8ebff;
+  --pill-ink: #0b1a33;
+  /* light blue -> blue */
+  --pill: linear-gradient(180deg, #e3f1ff 0%, #8fc1ff 100%);
 }
 
 @theme inline {
@@ -22,10 +25,13 @@
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-accent: var(--accent);
-  --color-accent-2: var(--accent-2);
+  --color-accent-light: var(--accent-light);
+  --color-dim: var(--dim);
+  --color-border-strong: var(--border-strong);
+  --color-pill-ink: var(--pill-ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-script: var(--font-script-accent);
+  --font-serif: var(--font-newsreader);
 }
 
 * {
@@ -38,7 +44,11 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(900px 620px at 50% 0%, rgba(110, 165, 255, 0.16), transparent 62%),
+    radial-gradient(900px 700px at 8% 85%, rgba(110, 165, 255, 0.08), transparent 60%),
+    linear-gradient(170deg, #0d1424 0%, #090e19 55%, #070a12 100%);
+  background-attachment: fixed;
   color: var(--foreground);
 }
 
@@ -63,17 +73,34 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(
-    100deg,
-    var(--accent-deep) 0%,
-    var(--accent) 25%,
-    var(--accent-light) 50%,
-    var(--accent) 75%,
-    var(--accent-deep) 100%
-  );
+  background: linear-gradient(100deg, #6aa8ff 0%, #9cc9ff 35%, #dff0ff 55%, #a3cdff 80%, #6aa8ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Frosted glass panel (cards, sidebar, popups) */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(225, 240, 255, 0.06) inset, 0 24px 60px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+/* Primary pill: light blue to blue, used for buttons and the active nav item */
+.pill-primary {
+  background: var(--pill);
+  color: var(--pill-ink);
+  box-shadow: 0 0 0 1px rgba(240, 248, 255, 0.55) inset, 0 8px 26px rgba(110, 165, 255, 0.32);
+}
+
+/* Brand section briefly glows after jumping to it from the brand picker */
+.brand-flash {
+  animation: brand-flash 1.8s ease-out;
+}
+@keyframes brand-flash {
+  0%, 40% { background: rgba(130, 180, 255, 0.07); box-shadow: 0 0 0 1px rgba(170, 205, 255, 0.4); }
+  100% { background: transparent; box-shadow: 0 0 0 1px transparent; }
 }
 
 @media (prefers-reduced-motion: reduce) {

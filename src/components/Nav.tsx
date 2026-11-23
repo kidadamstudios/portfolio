@@ -22,33 +22,33 @@ export default function Nav() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 md:px-10">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3 md:px-10">
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className="font-mono text-sm font-medium tracking-tight text-foreground"
+          className="font-serif text-2xl tracking-tight text-foreground"
         >
-          adrian<span className="text-accent">.</span>dev
+          Adrian<span className="text-accent">.</span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="glass hidden items-center gap-1 rounded-full p-1 md:flex">
           {links.map((link) => (
             <li key={link.href} className="relative">
               <Link
                 href={link.href}
-                className="relative block rounded-full px-4 py-2 text-sm text-muted transition-colors hover:text-foreground"
+                className="relative block rounded-full px-5 py-2 text-sm text-muted transition-colors hover:text-foreground"
               >
                 {isActive(link.href) && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 rounded-full bg-surface"
+                    className="pill-primary absolute inset-0 rounded-full"
                     transition={{ type: "spring", stiffness: 400, damping: 35 }}
                   />
                 )}
                 <span
                   className={`relative z-10 ${
-                    isActive(link.href) ? "text-foreground" : ""
+                    isActive(link.href) ? "font-medium text-pill-ink" : ""
                   }`}
                 >
                   {link.label}

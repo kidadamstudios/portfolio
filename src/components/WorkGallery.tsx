@@ -3,7 +3,7 @@ import { ImageIcon } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import CompareSlider from "@/components/CompareSlider";
 import BrandStoryCarousel from "@/components/BrandStoryCarousel";
-import type { ComparisonSample, WorkProject } from "@/lib/categories";
+import { slugify, type ComparisonSample, type WorkProject } from "@/lib/categories";
 import { asset } from "@/lib/asset";
 
 export default function WorkGallery({
@@ -29,9 +29,14 @@ export default function WorkGallery({
     return (
       <div className="grid gap-10 md:grid-cols-2">
         {samples.map((sample, i) => (
-          <Reveal key={i} delay={i * 0.08} y={16}>
+          <div
+            key={i}
+            id={sample ? sample.slug ?? slugify((sample.name ?? "").split(" — ")[0]) : undefined}
+            className="scroll-mt-28 rounded-3xl p-2 -m-2"
+          >
+          <Reveal delay={i * 0.08} y={16}>
             {sample?.name && (
-              <p className="mb-3 text-sm font-medium text-foreground/80">
+              <p className="mb-3 font-serif text-xl">
                 {sample.name}
               </p>
             )}
@@ -46,6 +51,7 @@ export default function WorkGallery({
               }}
             />
           </Reveal>
+          </div>
         ))}
       </div>
     );
@@ -55,12 +61,16 @@ export default function WorkGallery({
     const groups = projects.length > 0 ? projects : [{ name: "", images: [] }];
 
     return (
-      <div className="space-y-16">
+      <div className="space-y-12">
         {groups.map((project, gi) => (
-          <div key={project.name || gi}>
+          <section
+            key={project.name || gi}
+            id={project.name ? project.slug ?? slugify(project.name) : undefined}
+            className="scroll-mt-28 -mx-3 rounded-3xl px-3 py-3"
+          >
             {project.name && (
               <Reveal delay={gi * 0.05}>
-                <h2 className="text-lg font-medium">{project.name}</h2>
+                <h2 className="font-serif text-2xl">{project.name}</h2>
               </Reveal>
             )}
             <div className="mt-5">
@@ -72,7 +82,7 @@ export default function WorkGallery({
                 <ImageGrid images={project.images} offset={gi} aspect={project.aspect} />
               )}
             </div>
-          </div>
+          </section>
         ))}
       </div>
     );
@@ -107,7 +117,7 @@ function PageStrip({ images, offset = 0 }: { images: string[]; offset?: number }
     <div className="flex flex-wrap items-start gap-5">
       {tiles.map((src, i) => (
         <Reveal key={i} delay={(offset + i) * 0.05} y={16}>
-          <div className="h-[560px] max-h-[70vh] overflow-hidden rounded-xl border border-border bg-surface">
+          <div className="h-[560px] max-h-[70vh] overflow-hidden rounded-2xl border border-border bg-surface">
             {typeof src === "string" ? (
               // eslint-disable-next-line @next/next/no-img-element -- natural aspect ratio, unknown dimensions
               <img src={asset(src)} alt="" className="h-full w-auto object-contain" />
@@ -141,7 +151,7 @@ function ImageGrid({
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
       {tiles.map((src, i) => (
         <Reveal key={i} delay={(offset + i) * 0.04} y={16}>
-          <div className={`group relative ${aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"} overflow-hidden rounded-xl border border-border bg-surface`}>
+          <div className={`group relative ${aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"} overflow-hidden rounded-2xl border border-border bg-surface`}>
             {typeof src === "string" ? (
               <Image
                 src={asset(src)}

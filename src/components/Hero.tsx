@@ -50,7 +50,7 @@ export default function Hero() {
 
         <motion.h1
           variants={item}
-          className="mt-10 text-5xl font-semibold tracking-tight sm:mt-12 sm:text-6xl md:mt-14 md:text-7xl"
+          className="mt-6 font-serif text-5xl tracking-tight sm:text-6xl md:text-[5.5rem] md:leading-[1.02]"
         >
           <GradientHeadline {...headlines.home} />
         </motion.h1>
@@ -67,13 +67,13 @@ export default function Hero() {
         <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
           <Link
             href="/work"
-            className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
+            className="pill-primary rounded-full px-6 py-3 text-sm font-medium transition-transform hover:-translate-y-0.5"
           >
             View my work
           </Link>
           <Link
             href="/contact"
-            className="rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-white/30"
+            className="glass rounded-full px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-border-strong"
           >
             Get in touch
           </Link>

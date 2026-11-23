@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <section className="mx-auto flex min-h-[70vh] max-w-3xl flex-col items-start justify-center px-6 md:px-10">
       <p className="font-mono text-sm text-accent">404</p>
-      <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+      <h1 className="mt-3 font-serif text-5xl tracking-tight md:text-6xl">
         Nothing here.
       </h1>
       <p className="mt-4 text-muted">
@@ -12,7 +12,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-8 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
+        className="mt-8 pill-primary rounded-full px-6 py-3 text-sm font-medium transition-transform hover:-translate-y-0.5"
       >
         Back home
       </Link>
